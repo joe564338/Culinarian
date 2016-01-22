@@ -13,8 +13,12 @@ public class MainActivity extends Activity{
     Button loginButton;
     EditText passwordField;
     EditText userField;
+    //bools used to determine whether or not to clear the text box depending if they have touched
+    //the box at least once or not
     boolean touchedPass = false;
-    boolean touchedUser = true;
+    boolean touchedUser = false;
+    String password;
+    String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,7 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
         init();
     }
+    //initializes listeners
     public void init(){
         passwordField = (EditText) findViewById(R.id.mPasswordField);
         passwordField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -37,7 +42,7 @@ public class MainActivity extends Activity{
         userField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!touchedUser){
+                if (!touchedUser) {
                     userField.setText("");
                 }
                 touchedUser = true;
@@ -49,8 +54,18 @@ public class MainActivity extends Activity{
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT);
                 toast.show();
+                //userLogin();
             }
         });
 
+    }
+    //method to connect to login server
+    public void userLogin()
+    {
+        user = userField.getText().toString();
+        password = passwordField.getText().toString();
+        String method = "login";
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method, user, password);
     }
 }

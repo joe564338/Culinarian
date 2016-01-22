@@ -18,9 +18,10 @@
         android:id="@+id/mUserField"
         android:text="Username"
         android:textColor="#7D7E7D"
+        android:layout_marginTop="173dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="173dp" />
+        android:layout_toRightOf="@+id/mUserNameLabel"
+        android:layout_toEndOf="@+id/mUserNameLabel" />
 
     <EditText
         android:textColor="#7D7E7D"
@@ -46,5 +47,27 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:textColor="#7D7E7D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Username:"
+        android:id="@+id/mUserNameLabel"
+        android:layout_above="@+id/mPasswordField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:textColor="#7D7E7D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Password:"
+        android:id="@+id/mPasswordLabel"
+        android:layout_alignBottom="@+id/mPasswordField"
+        android:layout_toLeftOf="@+id/mPasswordField"
+        android:layout_toStartOf="@+id/mPasswordField" />
 
 </RelativeLayout>
